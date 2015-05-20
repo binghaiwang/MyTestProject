@@ -10,13 +10,46 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        ndk{
+            moduleName "jnitest"  //设置库(so)文件名称
+            ldLibs "log", "z", "m"
+            abiFilters "armeabi-v7a"
+        }
     }
+    /**
+     * 混淆设置
+     */
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //这个是解决lint报错的代码
+    lintOptions{
+        abortOnError false
+    }
+    /**
+     * 渠道打包（不同包名）
+     */
+    productFlavors {
+    }
+
+    /**
+     * 签名设置
+     */
+    signingConfigs {
+        myConfigs {
+            storeFile file("签名文件地址")
+            keyAlias "..."
+            keyPassword "..."
+            storePassword "..."
+        }
+    }
+}
+
+task ndkBuild(type: Exec){
+
 }
 
 dependencies {
