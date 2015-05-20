@@ -25,7 +25,7 @@ JNIEXPORT jstring JNICALL Java_com_test_mytestproject_JniResource_hello
 
 JNIEXPORT void JNICALL Java_com_test_mytestproject_JniResource_showAddToast
   (JNIEnv* env, jobject thiz,jint x, jint y){
-	jclass clazz = (*env)->FindClass(env,"com/jni/jnitest/JniResource");
+	jclass clazz = (*env)->FindClass(env,"com/test/mytestproject/JniResource");
 	jmethodID methodID1 = (*env)->GetMethodID(env,clazz,"add","(II)Ljava/lang/String;");
 	jmethodID methodID2 = (*env)->GetMethodID(env,clazz,"printAddResult","(Ljava/lang/String;)V");
 	jobject resultObj = (*env)->CallObjectMethod(env,thiz,methodID1,x,y);
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_com_test_mytestproject_JniResource_showAddToast
 
 JNIEXPORT void JNICALL Java_com_test_mytestproject_JniResource_showDelToast
   (JNIEnv* env, jobject thiz,jint x , jint y){
-	jclass clazz = (*env)->FindClass(env,"com/jni/jnitest/JniResource");
+	jclass clazz = (*env)->FindClass(env,"com/test/mytestproject/JniResource");
 	jmethodID methodID1 = (*env)->GetMethodID(env,clazz,"del","(II)Ljava/lang/String;");
 	jmethodID methodID2 = (*env)->GetMethodID(env,clazz,"printDelResult","(Ljava/lang/String;)V");
 	jobject resultObj = (*env)->CallObjectMethod(env,thiz,methodID1,x,y);
